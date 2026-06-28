@@ -1,7 +1,14 @@
 {
   "name": "sleek-summit-p4k",
   "version": "1.0.0",
+  "private": true,
+  "description": "Single-product t-shirt storefront",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "stripe": "^17.7.0"
   }
 }

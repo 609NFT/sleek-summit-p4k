@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Summit Tee</title>
+    <style>
+      :root {
+        --bg: #f7f2e8;
+        --ink: #1c1b1a;
+        --panel: #fffdf8;
+        --line: #e8ddcf;
+        --accent: #d4522d;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+      }
+
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 24px 16px 40px;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+      }
+
+      h1 { margin: 0 0 14px; }
+      p { margin: 6px 0; }
+      .muted { color: #6f655d; }
+
+      label {
+        display: block;
+        margin-top: 12px;
+        font-weight: 600;
+      }
+
+      input {
+        width: 100%;
+        margin-top: 6px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 12px 10px;
+        font-size: 16px;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 16px;
+        border: 0;
+        border-radius: 10px;
+        padding: 13px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 12px;
+        color: #6f655d;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="card">
+        <h1>Checkout</h1>
+        <p id="summary"></p>
+        <p id="total" class="muted"></p>
+        <p class="muted">Stripe is not configured yet, so this is a manual order capture fallback.</p>
+
+        <form id="order-form">
+          <label>
+            Full name
+            <input id="name" required />
+          </label>
+          <label>
+            Email
+            <input id="email" type="email" required />
+          </label>
+          <label>
+            Shipping address
+            <input id="address" required />
+          </label>
+          <button type="submit">Send Order Request</button>
+        </form>
+        <a class="back" href="/">Back to product</a>
+      </div>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const qty = Math.max(1, Number(params.get('qty')) || 1);
+      const size = (params.get('size') || 'M').toUpperCase();
+      const total = (qty * 32).toFixed(2);
+
+      document.getElementById('summary').textContent = `Order: ${qty} x Summit Tee (${size})`;
+      document.getElementById('total').textContent = `Total due: $${total}`;
+
+      document.getElementById('order-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const subject = encodeURIComponent(`Summit Tee Order - ${qty}x ${size}`);
+        const body = encodeURIComponent(
+          `New order request\\n\\nName: ${name}\\nEmail: ${email}\\nAddress: ${address}\\nItem: Summit Tee (${size})\\nQty: ${qty}\\nTotal: $${total}`
+        );
+        window.location.href = `mailto:orders@example.com?subject=${subject}&body=${body}`;
+      });
+    </script>
+  </body>
+</html>

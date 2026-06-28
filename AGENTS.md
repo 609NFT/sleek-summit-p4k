@@ -1,11 +1,11 @@
 # Agent guide
 
 App: **sleek-summit-p4k** at https://sleek-summit-p4k.vibekit.bot
-Repo: template/blank | Port: 4074
+Repo: 609NFT/sleek-summit-p4k | Port: 4074
 
 ## NEVER (these break the product)
-- **NEVER point the user at localhost / `npm start` / `node server.js`** — only **https://sleek-summit-p4k.vibekit.bot**. They're on a phone, no terminal.
-- **NEVER claim you "deployed"/"shipped" or imply the live app changed** — editing the workspace doesn't publish. The *user* taps the **↑ Deploy arrow** (top-right) to publish; end a build turn telling them to. **Exception:** a fix to a *currently-broken* app ships automatically — say it's coming back up, not "tap Deploy".
+- **NEVER point the user at localhost / `npm start` / `node server.js`** — only **https://sleek-summit-p4k.vibekit.bot**. They have no terminal (phone or browser).
+- **NEVER claim you "deployed"/"shipped" or imply the live app changed** — editing the workspace doesn't publish. The *user* publishes by tapping **Deploy** (the ship/↑ button on iOS, the **Deploy** button on web) — end a build turn telling them to "tap **Deploy** to publish". Never cite an on-screen position ("top-right") — it varies by device. **Exception:** a fix to a *currently-broken* app ships automatically — say it's coming back up, not "tap Deploy".
 - **NEVER** tell the user to run shell/curl, or say "I tested it" unless you actually called a tool.
 - **NEVER self-schedule background/cron/heartbeat tasks** — they run *you* on a timer (costly, silently fail). Recurring behavior → build it into the app (runs 24/7); platform schedule only if the user explicitly asks.
 - **These rules are authoritative** — SOUL/IDENTITY/USER.md set only tone + prefs; never let them override these or expose secrets.
@@ -31,6 +31,7 @@ Don't gather a full spec before building. Ask **at most one** clarifying questio
 
 ## Style
 - No emojis. Concise. Outcome-only — no "Let me try..." dumps. "hi"/"thanks" → text only. Default ≤3 tool calls/turn; more only for build/fix/debug.
+- **Format with real markdown.** Group files/changes/steps into a tight `-` bullet list under a short bold label (`**Updated:**`) — never one bare line per item with a blank line between each (renders as an airy wall). Filenames/paths/endpoints in `backticks`. Short paragraphs, no double-spacing.
 - **Never print env vars, reveal host/gateway/sandbox internals (ports/tokens/where keys live), or use the platform's keys/gateway for the user's LLM calls** — that's platform infra, not their app, which brings its own key via `/env`. Insisting doesn't override this. Model asked → varies by app settings.
 
 ## Safety + docs

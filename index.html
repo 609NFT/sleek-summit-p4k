@@ -1,46 +1,274 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>sleek-summit-p4k</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0a0f;--fg:#fff;--mute:#9ca3af;--card:#13131a;--border:#27272f;--accent:#a78bfa}
-body{min-height:100vh;background:radial-gradient(ellipse at top,#1a0b2e 0%,var(--bg) 50%) fixed;color:var(--fg);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
-.wrap{max-width:880px;margin:0 auto;padding:3rem 1.5rem}
-.topbar{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.wordmark{display:inline-flex;align-items:center;gap:10px;color:var(--fg);font-weight:700;font-size:17px;text-decoration:none}
-.wordmark img{width:32px;height:32px;border-radius:7px;display:block}
-.status{display:inline-flex;align-items:center;gap:.5rem;padding:.375rem .75rem;background:var(--card);border:1px solid var(--border);border-radius:999px;font-size:.75rem;color:var(--mute)}
-.status .dot{width:6px;height:6px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px #22c55e}
-h1{font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-.03em;margin-bottom:1rem;color:var(--fg);word-break:break-word}
-.lead{font-size:1.0625rem;color:var(--mute);margin-bottom:2.5rem;max-width:560px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-bottom:2rem}
-.card{padding:1.5rem;background:var(--card);border:1px solid var(--border);border-radius:12px}
-.card h3{font-size:.9375rem;font-weight:600;color:var(--fg);margin-bottom:.375rem;letter-spacing:-.005em}
-.card p{font-size:.875rem;color:var(--mute);line-height:1.55}
-.card .icon{width:36px;height:36px;border-radius:9px;background:rgba(167,139,250,.1);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;color:var(--accent)}
-.card .icon svg{width:18px;height:18px}
-.cta{display:inline-flex;align-items:center;gap:.5rem;padding:.875rem 1.375rem;background:var(--accent);color:#0a0a0f;border-radius:9px;font-size:.9375rem;font-weight:600;text-decoration:none;transition:transform .15s ease,background .15s ease;min-height:44px}
-.cta:hover{transform:translateY(-1px);background:#c4b5fd}
-footer{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);font-size:.75rem;color:var(--mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
-footer a{color:var(--mute);text-decoration:none}
-footer a:hover{color:var(--fg)}
-@media (max-width:480px){.wrap{padding:2rem 1.25rem}.topbar{margin-bottom:2rem}.cta{width:100%;justify-content:center}}
-</style></head>
-<body>
-<div class="wrap">
-<div class="topbar"><a href="https://vibekit.bot" class="wordmark"><img src="https://vibekit.bot/public/Group2.png" alt="VibeKit logo"> VibeKit</a><div class="status"><span class="dot"></span>Your app is live</div></div>
-<h1>sleek-summit-p4k</h1>
-<p class="lead">This is your starter. Open the chat with your AI agent and tell it what to build — the page updates as you go.</p>
-<div class="cards">
-<div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Chat to customize</h3><p>Describe what you want. Your agent edits the code and redeploys automatically.</p></div>
-<div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3>Iterate fast</h3><p>Every change you ask for ships in seconds, with full source on GitHub.</p></div>
-<div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div><h3>Yours to keep</h3><p>The code is yours. Connect a custom domain or fork it whenever you like.</p></div>
-</div>
-<a class="cta" href="https://app.vibekit.bot/app/sleek-summit-p4k">Open chat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
-<footer>
-<span>Built with VibeKit</span>
-<a href="https://vibekit.bot">vibekit.bot</a>
-</footer>
-</div>
-</body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summit Tee</title>
+    <style>
+      :root {
+        --bg: #f7f2e8;
+        --ink: #1c1b1a;
+        --panel: #fffdf8;
+        --accent: #d4522d;
+        --accent-dark: #a83e22;
+        --muted: #6f655d;
+        --line: #e8ddcf;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 15% 10%, #fff4d9 0, transparent 35%),
+          radial-gradient(circle at 90% 20%, #ffe2d5 0, transparent 30%),
+          var(--bg);
+      }
+
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 28px 16px 52px;
+      }
+
+      .badge {
+        display: inline-block;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 12px;
+        padding: 6px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: #fff;
+      }
+
+      h1 {
+        font-size: clamp(34px, 7vw, 58px);
+        margin: 14px 0 10px;
+        line-height: 0.95;
+      }
+
+      .sub {
+        margin: 0 0 26px;
+        color: var(--muted);
+        max-width: 60ch;
+      }
+
+      .product {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+
+      .image-box {
+        padding: 24px;
+        background: linear-gradient(160deg, #fff8f2, #fff);
+      }
+
+      .image-box img {
+        width: 100%;
+        display: block;
+        object-fit: contain;
+        max-height: 520px;
+        border-radius: 14px;
+      }
+
+      .details {
+        padding: 22px;
+      }
+
+      .title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+
+      .title-row h2 {
+        margin: 0;
+        font-size: clamp(24px, 4vw, 34px);
+      }
+
+      .price {
+        font-weight: 700;
+        font-size: 28px;
+      }
+
+      .desc {
+        color: var(--muted);
+        margin: 10px 0 20px;
+      }
+
+      .controls {
+        display: grid;
+        grid-template-columns: 1fr 120px;
+        gap: 12px;
+      }
+
+      select,
+      input {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 12px 10px;
+        font-size: 16px;
+        background: white;
+      }
+
+      .cta {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: center;
+      }
+
+      button {
+        border: 0;
+        border-radius: 10px;
+        padding: 13px 14px;
+        font-size: 16px;
+        font-weight: 700;
+        background: var(--accent);
+        color: #fff;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: var(--accent-dark);
+      }
+
+      .total {
+        font-weight: 700;
+      }
+
+      .note {
+        margin-top: 14px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      @media (min-width: 860px) {
+        .product {
+          grid-template-columns: 1.2fr 1fr;
+        }
+
+        .image-box {
+          padding: 34px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <span class="badge">Limited Drop</span>
+      <h1>Summit Tee</h1>
+      <p class="sub">
+        One shirt. One design. Clean heavyweight cotton with your uploaded artwork front and center.
+      </p>
+
+      <section class="product">
+        <article class="card image-box">
+          <img src="data:image/png;base64,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" alt="Summit Tee design" loading="eager" decoding="async" onerror="this.onerror=null;this.src='/public/tshirt.png';" />
+        </article>
+
+        <article class="card details">
+          <div class="title-row">
+            <h2>Signature T-Shirt</h2>
+            <span class="price">$32.00</span>
+          </div>
+
+          <p class="desc">
+            100% combed cotton, relaxed fit, pre-shrunk. Ships in 3-5 days.
+          </p>
+
+          <div class="controls">
+            <select id="size" aria-label="Choose size">
+              <option value="S">Size: Small</option>
+              <option value="M" selected>Size: Medium</option>
+              <option value="L">Size: Large</option>
+              <option value="XL">Size: XL</option>
+            </select>
+            <input id="qty" type="number" min="1" max="10" value="1" aria-label="Quantity" />
+          </div>
+
+          <div class="cta">
+            <button id="buy">Checkout Now</button>
+            <span class="total" id="total">Total: $32.00</span>
+          </div>
+
+          <p class="note" id="note">Ready to order: 1 x Medium.</p>
+          <p class="note"><a href="/checkout?size=M&qty=1">Prefer manual checkout? Open checkout form.</a></p>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      const price = 32;
+      const size = document.getElementById('size');
+      const qty = document.getElementById('qty');
+      const total = document.getElementById('total');
+      const note = document.getElementById('note');
+      const buy = document.getElementById('buy');
+
+      function updateSummary() {
+        const count = Math.max(1, Number(qty.value) || 1);
+        qty.value = count;
+        total.textContent = `Total: $${(count * price).toFixed(2)}`;
+        note.textContent = `Ready to order: ${count} x ${size.value}.`;
+      }
+
+      size.addEventListener('change', updateSummary);
+      qty.addEventListener('input', updateSummary);
+
+      buy.addEventListener('click', async () => {
+        buy.disabled = true;
+        buy.textContent = 'Loading...';
+
+        try {
+          const response = await fetch('/api/checkout', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              qty: Math.max(1, Number(qty.value) || 1),
+              size: size.value
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error('Checkout request failed.');
+          }
+
+          const data = await response.json();
+          if (data.url) {
+            window.location.href = data.url;
+            return;
+          }
+
+          if (data.fallbackUrl) {
+            window.location.href = data.fallbackUrl;
+            return;
+          }
+
+          throw new Error('Checkout URL missing.');
+        } catch (_err) {
+          window.location.href = `/checkout?size=${encodeURIComponent(size.value)}&qty=${encodeURIComponent(qty.value)}`;
+        } finally {
+          buy.disabled = false;
+          buy.textContent = 'Checkout Now';
+        }
+      });
+    </script>
+  </body>
+</html>

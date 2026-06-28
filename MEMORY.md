@@ -12,7 +12,7 @@
 (none yet)
 
 ## Decisions
-(none yet)
+- 2026-06-28: Checkout uses `/api/checkout` with Stripe when `STRIPE_SECRET_KEY` or `STRIPE_PAYMENT_LINK` is configured; otherwise it falls back to `/checkout` manual order capture so buyers never hit a dead end.
 
 ## How to Use Memory
 - Update this file with important decisions, architecture choices, and lessons
