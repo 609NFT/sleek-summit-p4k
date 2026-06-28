@@ -1,11 +1,11 @@
 # STATUS.md — Live Infrastructure (auto-updated)
-_Last updated: 2026-06-28T00:39:43.964Z_
+_Last updated: 2026-06-28T01:42:39.559Z_
 
 ## Container
 - **Name**: vk-sleek-summit-p4k
-- **Status**: running
+- **Status**: exited
 - **Started**: 2026-06-27T23:50:44.321231771Z
-- **Resources**: 0.00% CPU | 23.49MiB / 1GiB | 94.2kB / 761kB net
+- **Resources**: 0.00% CPU | 0B / 0B | 0B / 0B net
 - **Memory Limit**: 1024MB
 - **Port**: 4074
 
@@ -14,7 +14,7 @@ _Last updated: 2026-06-28T00:39:43.964Z_
 - **Subdomain**: sleek-summit-p4k.vibekit.bot
 - **DB Status**: running
 - **Health Failures**: 0
-- **Last Healthy**: 2026-06-28T00:39:20.377+00:00
+- **Last Healthy**: 2026-06-28T01:42:05.497+00:00
 
 
 ## Host
@@ -26,6 +26,11 @@ _Last updated: 2026-06-28T00:39:43.964Z_
 > node server.js
 
 Placeholder ready on port 4074
+npm error path /app
+npm error command failed
+npm error signal SIGTERM
+npm error command sh -c node server.js
+npm error A complete log of this run can be found in: /home/appuser/.npm/_logs/2026-06-27T23_50_44_403Z-debug-0.log
 ```
 
 ## Recent Events

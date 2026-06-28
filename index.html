@@ -74,14 +74,88 @@
       .image-box {
         padding: 24px;
         background: linear-gradient(160deg, #fff8f2, #fff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 430px;
       }
 
-      .image-box img {
+      .mockup-stage {
+        width: min(100%, 500px);
+        aspect-ratio: 1 / 1.15;
+        padding: 12px;
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.75), transparent 46%),
+          linear-gradient(180deg, #f6ecdf 0%, #f3e6d7 100%);
+      }
+
+      .tee-mockup {
+        position: relative;
         width: 100%;
-        display: block;
+        height: 100%;
+        filter: drop-shadow(0 26px 26px rgba(42, 31, 25, 0.2));
+      }
+
+      .tee-body {
+        position: absolute;
+        inset: 12% 16% 6%;
+        border-radius: 20% 20% 12% 12% / 13% 13% 10% 10%;
+        background: linear-gradient(180deg, #faf9f7 0%, #ece9e4 100%);
+        box-shadow: inset 0 0 0 2px rgba(218, 214, 205, 0.9), inset 0 -24px 40px rgba(0, 0, 0, 0.05);
+      }
+
+      .tee-sleeve {
+        position: absolute;
+        top: 18%;
+        width: 28%;
+        height: 24%;
+        background: linear-gradient(180deg, #f9f7f5 0%, #e5e1da 100%);
+        box-shadow: inset 0 0 0 2px rgba(218, 214, 205, 0.85);
+      }
+
+      .tee-sleeve.left {
+        left: 2%;
+        border-radius: 58% 12% 40% 18%;
+        transform: rotate(10deg);
+      }
+
+      .tee-sleeve.right {
+        right: 2%;
+        border-radius: 12% 58% 18% 40%;
+        transform: rotate(-10deg);
+      }
+
+      .tee-collar {
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        width: 20%;
+        height: 9%;
+        transform: translateX(-50%);
+        border-radius: 0 0 45% 45%;
+        background: #ddd8d0;
+        box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.75);
+      }
+
+      .tee-print {
+        position: absolute;
+        left: 30%;
+        top: 30%;
+        width: 40%;
+        height: 40%;
+        border-radius: 10px;
+        background: #f9f7f2;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.14), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+
+      .tee-print img {
+        width: 100%;
+        height: 100%;
         object-fit: contain;
-        max-height: 520px;
-        border-radius: 14px;
+        display: block;
+        padding: 10px;
       }
 
       .details {
@@ -180,7 +254,17 @@
 
       <section class="product">
         <article class="card image-box">
-          <img src="data:image/png;base64,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" alt="Summit Tee design" loading="eager" decoding="async" onerror="this.onerror=null;this.src='/public/tshirt.png';" />
+          <div class="mockup-stage">
+            <div class="tee-mockup">
+              <div class="tee-sleeve left"></div>
+              <div class="tee-sleeve right"></div>
+              <div class="tee-body"></div>
+              <div class="tee-collar"></div>
+              <div class="tee-print">
+                <img src="data:image/png;base64,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" alt="Summit Tee print design" loading="eager" decoding="async" onerror="this.onerror=null;this.src='/public/tshirt.png';" />
+              </div>
+            </div>
+          </div>
         </article>
 
         <article class="card details">
