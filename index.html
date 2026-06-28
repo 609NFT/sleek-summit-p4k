@@ -313,12 +313,18 @@
         note.textContent = `Ready to order: ${count} x ${size.value}.`;
       }
 
+      function manualCheckoutUrl() {
+        return `/checkout?size=${encodeURIComponent(size.value)}&qty=${encodeURIComponent(String(Math.max(1, Number(qty.value) || 1)))}`;
+      }
+
       size.addEventListener('change', updateSummary);
       qty.addEventListener('input', updateSummary);
 
       buy.addEventListener('click', async () => {
         buy.disabled = true;
         buy.textContent = 'Loading...';
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 1500);
 
         try {
           const response = await fetch('/api/checkout', {
@@ -327,8 +333,11 @@
             body: JSON.stringify({
               qty: Math.max(1, Number(qty.value) || 1),
               size: size.value
-            })
+            }),
+            signal: controller.signal
           });
+
+          clearTimeout(timeoutId);
 
           if (!response.ok) {
             throw new Error('Checkout request failed.');
@@ -347,7 +356,8 @@
 
           throw new Error('Checkout URL missing.');
         } catch (_err) {
-          window.location.href = `/checkout?size=${encodeURIComponent(size.value)}&qty=${encodeURIComponent(qty.value)}`;
+          clearTimeout(timeoutId);
+          window.location.href = manualCheckoutUrl();
         } finally {
           buy.disabled = false;
           buy.textContent = 'Checkout Now';
