@@ -4,7 +4,7 @@ const Stripe = require('stripe');
 
 const app = express();
 const port = Number(process.env.PORT) || 4074;
-const shirtPriceCents = 3200;
+const shirtPriceCents = 2999;
 const validSizes = new Set(['S', 'M', 'L', 'XL']);
 
 app.use(express.json());
