@@ -79,7 +79,7 @@
         <h1>Checkout</h1>
         <p id="summary"></p>
         <p id="total" class="muted"></p>
-        <p class="muted">Stripe is not configured yet, so this is a manual order capture fallback.</p>
+        <p class="muted">If Stripe is not configured yet, this form sends you a direct order notification.</p>
 
         <form id="order-form">
           <label>
@@ -104,21 +104,40 @@
       const params = new URLSearchParams(window.location.search);
       const qty = Math.max(1, Number(params.get('qty')) || 1);
       const size = (params.get('size') || 'M').toUpperCase();
-      const total = (qty * 32).toFixed(2);
+      const unitPrice = 29.99;
+      const total = (qty * unitPrice).toFixed(2);
 
       document.getElementById('summary').textContent = `Order: ${qty} x Summit Tee (${size})`;
       document.getElementById('total').textContent = `Total due: $${total}`;
 
-      document.getElementById('order-form').addEventListener('submit', (event) => {
+      document.getElementById('order-form').addEventListener('submit', async (event) => {
         event.preventDefault();
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const address = document.getElementById('address').value.trim();
-        const subject = encodeURIComponent(`Summit Tee Order - ${qty}x ${size}`);
-        const body = encodeURIComponent(
-          `New order request\\n\\nName: ${name}\\nEmail: ${email}\\nAddress: ${address}\\nItem: Summit Tee (${size})\\nQty: ${qty}\\nTotal: $${total}`
-        );
-        window.location.href = `mailto:orders@example.com?subject=${subject}&body=${body}`;
+
+        const button = event.target.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.textContent = 'Submitting...';
+
+        try {
+          const response = await fetch('/api/manual-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, address, qty, size })
+          });
+
+          if (!response.ok) {
+            throw new Error('Order submit failed.');
+          }
+
+          button.textContent = 'Order submitted';
+          document.getElementById('summary').textContent = 'Order received. We will contact you by email.';
+        } catch (_error) {
+          button.disabled = false;
+          button.textContent = 'Send Order Request';
+          alert('Could not send order right now. Please try again.');
+        }
       });
     </script>
   </body>
